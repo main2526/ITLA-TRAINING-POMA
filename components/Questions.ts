@@ -279,4 +279,171 @@ export const quizData = [
     ],
     answer: 2,
   },
+
+  {
+    question:
+      "Hallar cual de los dos pares de valores otorgados a X e Y en la expresión: X-Y/2 =  son válidos",
+    options: ["X=1; Y = 4", "X=3; Y =6", "X= 4; Y = 7", "X = 6; Y = 4"],
+    answer: 1,
+  },
+
+  {
+    question:
+      "Hallar cual de los dos pares de valores otorgados a X e Y en la expresión: X-Y/2 =  son válidos son unos circulos con flechas dentro sin punta",
+    options: ["## ", "##", "C", "##"],
+    answer: 2,
+  },
+
+  {
+    question:
+      "De los cuatro grupos de letras que se colocan a continuación, uno sigue una regla de",
+    options: ["qp ", "db", "oo", "hi"],
+    answer: 2,
+  },
+
+  {
+    question:
+      "Mire la siguiente figura. Si la rotamos hacia su derecha 3/4 de vuelta ¿en qué lugar quedará situada la pieza inferior izquierda? / es como un rompe cabeza",
+    options: [
+      "superior-derecha",
+      "inferior-izquierda",
+      "inferior-derecha",
+      "superior-izquierda",
+    ],
+    answer: 2,
+  },
+
+  {
+    question:
+      "Cuántos cubos se tendrían que añadir al conjunto anterior para completar una figura tres veces más grande?",
+    options: ["17", "21", "19", "16"],
+    answer: 2,
+  },
+
+  {
+    question:
+      "Siga con la vista el trazado de figura angular sobre la red de puntos rojos e indiquepor cuál punto rojo no estaría uno de los vértices del trazado de la figura./ Hay una flecha rosada y una secuencia de puntos rojos ",
+    options: ["#", "#", "#", "D"],
+    answer: 3,
+  },
+
+  {
+    question:
+      "Qué figura completa el razonamiento que se presenta en la primera serie de figuras?/ son figuras geometricas es a como es / especies de triangulos y pentagonos",
+    options: ["#", "#", "C", "#"],
+    answer: 2,
+  },
+
+  {
+    question:
+      "Cuántas veces se repite la figura de la izquierda en el conjunto de trazos del siguiente",
+    options: ["Una", "Dos", "Tres", "Cuatro"],
+    answer: 1,
+  },
+
+  {
+    question:
+      "Busque la relación existente entre las dos primeras figuras, y aplíquela en la siguiente figura, escogiendo una de las alternativas propuestas",
+    options: ["#", "#", "C", "#"],
+    answer: 2,
+  },
+
+  {
+    question:
+      "a primera figura representa un papel rectángulo doblado con forma triangular, si lo desdoblamos siguiendo el sentido de la flecha, ¿cuál de las cuatro opciones sería lafigura que obtendríamos?",
+    options: ["#", "B", "#", "#"],
+    answer: 1,
+  },
+
+  {
+    question:
+      "Indique la figura que no se puede igualar nunca a la primera, aunque gire, muchas veces, en el mismo sentido / son rectangulos con 2 lineas y nunca igualaran la primera figura",
+    options: ["A", "#", "#", "#"],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Sobre unas coordenadas cartesianas se han colocado cuatro rayitas (A, B, C, D). Cada 43Arayita está definida por dos números que indican la separación del origen (abscisa) y la altura (ordenada). Los valores asignados a uno de los puntos no está bien. Podría Indicar ¿cuál de ellos es?/ es una plano cartesiano a la mitad",
+    options: ["(4,6.5)", "(5,2).", "(5,4)", "(6,2)"],
+    answer: 1,
+  },
+
+  {
+    question:
+      " tarea consiste en llenar la figura blanca de la izquierda, con tres figuras de la derecha. ¿ Cuál de ellas no sería utilizada? / donde hay varias figuras y al final hay un cuadrado medio-virado",
+    options: ["#", "#", "#", "D"],
+    answer: 3,
+  },
+
+  {
+    question:
+      "Continúe la serie de figuras del rectángulo primero, con la opción del rectángulo de a derecha que le parezca más razonable / son varias figuras y en penultimo lugar hay un cuadrado",
+    options: ["#", "#", "C", "#"],
+    answer: 2,
+  },
+
+  {
+    question: "Generalmente utilizamos zapatos para ..",
+    options: [
+      "proteger nuestra salud",
+      "presumir.",
+      "protegernos del frío",
+      "no mancharse los pies",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "ra averiguar la velocidad promedio a la que ha ido un autobús desde Santo Domingoa Puerto Plata, sabiendo que ha tardado 4 horas y media, y que ha recorrido 450 km y que tuvo una parada de 15 minutos, ¿Cuál de estas fórmulas utilizaría para responder a la pregunta?",
+    options: [
+      "Velocidad = espacio x tiempo total",
+      "Espacio = recorrido x velocidad",
+      "Velocidad = espacio / tiempo total empleado",
+      "Velocidad = Vespacio / tiempo real utilizado",
+    ],
+    answer: 3,
+  },
+
+  {
+    question:
+      "Indique cuál de los siguientes fenómenos, en la actualidad, crea la mayor preocupación mundial",
+    options: [
+      "El calentamiento de nuestro planeta.",
+      "Los incendios forestales",
+      "El aumento del número de huracanes",
+      "La contaminación en las grandes ciudades",
+    ],
+    answer: 0,
+  },
+
+  {
+    question: "Qué es un manatí? ¿ Cuál sería la mejor descripción?",
+    options: [
+      "Un mamífero, muy pesado, parecido a la ballena",
+      "Un animal prehistórico",
+      "Un animal, parecido a un cerdo, que vive en el agua",
+      "Un mamífero marino, muy pesado, que suele vivir en aguas templadas",
+    ],
+    answer: 3,
+  },
+
+  {
+    question: "Cuál de los siguientes animales marinos es mamífero?",
+    options: ["El pinguino", "La tortuga", "El tiburón", "La ballena."],
+    answer: 3,
+  },
+
+  {
+    question:
+      "Por que a la misma distancia y en las mismas condiciones, dos hombres hablando a gritos podrían escucharse entre dos barcas y no en los paseos espaciales?",
+    options: [
+      "Por la falta de aire que lleve el sonido",
+      "Por la presión de las cabinas",
+      "Por la velocidad que llevan las naves",
+      "Por los trajes espaciales",
+    ],
+    answer: 0,
+  },
 ];
