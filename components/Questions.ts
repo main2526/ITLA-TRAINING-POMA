@@ -446,4 +446,98 @@ export const quizData = [
     ],
     answer: 0,
   },
+
+  {
+    question: "Cuál de estos fenómenos NO es un ejemplo de un cambio químico?",
+    options: [
+      "El agua al hervir",
+      "El hierro al oxidarse",
+      "La madera al arder",
+      "El pan al ser cocido",
+    ],
+    answer: 0,
+  },
+
+  {
+    question: "Por que cuando vamos en un autobus y este frena de repente, nuestros cuerpos se inclinan hacia adelante?",
+    options: [
+      "Por la fuerza centrífuga",
+      "Porque resbala el suelo",
+      "Por la velocidad que lleva",
+      "Por la fuerza de la inercia",
+    ],
+    answer: 3,
+  },
+
+  {
+    question:
+      "Si tapamos una vela encendida dentro de una campana de vidrio, vemos que al cabo de un rato ésta se apaga, ¿por qué?",
+    options: [
+      "Se acaba el aire dentro",
+      "Se hace mucho vapor de agua",
+      "Se quema el hidrógeno",
+      "Se quema el oxígeno",
+    ],
+    answer: 3,
+  },
+
+  {
+    question:
+      "Cuál de las siguientes razones es más poderosa para luchar por la conservación de la capa de ozono de la tierra? Porque ",
+    options: [
+      "Nos protege de los rayos solares malignos.",
+      "se enfriaría la Tierra, si desaparece",
+      "Conserva mejor el equilibrio atmosférico",
+      "Nos previene mejor de los huracanes",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Cual de las siguientes razones es mas importante para luchar por la conservación de los bosques amazónicos? Porque .",
+    options: [
+      "nos proporcionan oxígeno",
+      "nos ofrecen grandes recursos naturales",
+      "protege el hábitat de los animales",
+      "nos ofrecen un espacio para acampar",
+    ],
+    answer: 0,
+  },
+
+  {
+    question: "Por que los pinguinos no pueden volar?",
+    options: [
+      "Porque sus alas son pequena",
+      "Porque no son aves",
+      "Porque son mamíferos",
+      "Porque pesan mucho",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "na persona piensa construir en un valle una granja de cría de animales, en un terreno que está muy cercano al cauce de un río. Sopesando las razones a favor y en contra ha encontrado éstas, ¿cuál de ellos sería la que debe tener más peso decisivo para él?",
+    options: [
+      "Es un buen sitio, pues tiene el agua cerca",
+      "Es un buen sitio, pues está protegido por las montañas",
+      "Es un mal sitio, pues peligra toda la inversión si el río crece",
+      "Es un mal sitio, porque ocuparía terrenos aptos para la agricultura",
+    ],
+    answer: 2,
+  },
+
+
+  {
+    question:
+      "exceso de ............... suele ser un fenómeno propio de la época navideña",
+    options: [
+      "consumismo",
+      "lluvias.",
+      "bienestar",
+      "vientos",
+    ],
+    answer: 0,
+  },
 ];
