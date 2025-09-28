@@ -1,13 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { quizData } from "@/components/Questions";
-
+import Image from "next/image";
 // --- Componente Principal de la App ---
 export default function App() {
   const [gameState, setGameState] = useState("start"); // 'start', 'quiz', 'results'
   const [answers, setAnswers] = useState<{ [key: number]: number }>({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [showCreator, setShowCreator] = useState(false); // <-- estado para popup
 
   const handleStart = (): void => {
     setGameState("quiz");
@@ -82,8 +83,85 @@ export default function App() {
   };
 
   return (
-    <main className="bg-slate-900 text-white min-h-screen flex items-center justify-center font-sans p-4">
+    <main className="bg-slate-900 text-white min-h-screen flex items-center justify-center font-sans p-4 relative">
       <div className="w-full max-w-2xl mx-auto">{renderContent()}</div>
+      {/* Botón Creador flotante */}
+      <button
+        onClick={() => setShowCreator(true)}
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold py-3 px-6 rounded-full shadow-lg  z-50"
+        style={{ boxShadow: "0 4px 24px 0 rgba(56,189,248,0.3)" }}
+      >
+        Creator
+      </button>
+      {/* Modal Creador */}
+      {showCreator && (
+        <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50 animate-fade-in">
+          <div className="bg-slate-800 rounded-2xl shadow-2xl m-10 p-8 text-center border-4 border-cyan-400 animate-scale-in flex flex-col items-center">
+            <h2 className="text-3xl font-bold text-cyan-400 mb-4 animate-glow-horizontal">
+              Creator
+            </h2>
+            <Image
+              src="/creator.jpg"
+              alt="Foto del creador"
+              className="w-32 h-32 rounded-full object-cover border-4 border-cyan-300 shadow-lg mb-4 animate-fade-in"
+              width={200}
+              height={200}
+            />
+            <p className="text-xl text-white font-semibold mb-2 animate-fade-in">
+              Developed by{" "}
+              <span className="text-cyan-300 font-bold animate-pulse">
+                BootsDev-X
+              </span>
+            </p>
+            <div className="flex gap-3 mb-4">
+              <a
+                href="https://www.youtube.com/@BootsDev-X"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2  bg-red-600  text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105"
+              >
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="text-white"
+                >
+                  <path d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.112C19.136 3.5 12 3.5 12 3.5s-7.136 0-9.386.574A2.994 2.994 0 0 0 .502 6.186C0 8.436 0 12 0 12s0 3.564.502 5.814a2.994 2.994 0 0 0 2.112 2.112C4.864 20.5 12 20.5 12 20.5s7.136 0 9.386-.574a2.994 2.994 0 0 0 2.112-2.112C24 15.564 24 12 24 12s0-3.564-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+                YouTube
+              </a>
+              <a
+                href="https://github.com/main2526"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-black gap-2  text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105"
+              >
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="text-white"
+                >
+                  <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.525.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.254-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.396.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.339-.012 2.421-.012 2.751 0 .267.18.578.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+            <p className="text-slate-400 mb-4 animate-fade-in">
+              ¡Esta app está hecha con el fin de que practiques y aprendas, para
+              que logres pasar el examen POMA del ITLA! 🚀
+            </p>
+            <button
+              onClick={() => setShowCreator(false)}
+              className="mt-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-6 rounded-full shadow-lg "
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
@@ -138,7 +216,8 @@ const ResultsView = ({
         Resultados Finales
       </h2>
       <p className="text-slate-300 mb-6 text-lg">
-        Respondiste correctamente a {correctAnswers} de {totalQuestions} preguntas.
+        Respondiste correctamente a {correctAnswers} de {totalQuestions}{" "}
+        preguntas.
       </p>
       <div className="mb-8">
         <p className="text-lg text-slate-400">Tu puntuación es:</p>
