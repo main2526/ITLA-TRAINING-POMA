@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { quizData } from "@/components/Questions";
 import Image from "next/image";
+import { motion } from "framer-motion";
 // --- Componente Principal de la App ---
 export default function App() {
   const [gameState, setGameState] = useState("start"); // 'start', 'quiz', 'results'
@@ -88,41 +89,57 @@ export default function App() {
       {/* Botón Creador flotante */}
       <button
         onClick={() => setShowCreator(true)}
-        className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold py-3 px-6 rounded-full shadow-lg  z-50"
+        className="fixed bottom-4 right-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold py-2 px-4 rounded-full shadow-lg z-50 text-sm md:py-3 md:px-6 md:text-base"
         style={{ boxShadow: "0 4px 24px 0 rgba(56,189,248,0.3)" }}
       >
         Creator
       </button>
       {/* Modal Creador */}
       {showCreator && (
-        <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50 animate-fade-in">
-          <div className="bg-slate-800 rounded-2xl shadow-2xl m-10 p-8 text-center border-4 border-cyan-400 animate-scale-in flex flex-col items-center">
-            <h2 className="text-3xl font-bold text-cyan-400 mb-4 animate-glow-horizontal">
+        <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50 animate-fade-in p-2" onClick={() => setShowCreator(false)}>
+          <motion.div
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            transition={{ type: "keyframes", stiffness: 60, damping: 18 }}
+            className="bg-slate-800 rounded-2xl shadow-2xl m-2 p-4 md:p-8 text-center border-4 border-cyan-400 flex flex-col items-center w-full max-w-xs md:max-w-md relative"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Botón X para cerrar dentro del popup */}
+            <button
+              onClick={() => setShowCreator(false)}
+              className="absolute top-2 right-4 text-cyan-400 hover:text-cyan-300 text-4xl md:text-4xl font-bold focus:outline-none"
+              aria-label="Cerrar"
+              style={{ zIndex: 10 }}
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl md:text-3xl font-bold text-cyan-400 mb-2 md:mb-4 animate-glow-horizontal">
               Creator
             </h2>
             <Image
               src="/creator.jpg"
               alt="Foto del creador"
-              className="w-32 h-32 rounded-full object-cover border-4 border-cyan-300 shadow-lg mb-4 animate-fade-in"
-              width={200}
-              height={200}
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-cyan-300 shadow-lg mb-2 md:mb-4 animate-fade-in"
+              width={128}
+              height={128}
             />
-            <p className="text-xl text-white font-semibold mb-2 animate-fade-in">
+            <p className="text-lg md:text-xl text-white font-semibold mb-2 animate-fade-in">
               Developed by{" "}
               <span className="text-cyan-300 font-bold animate-pulse">
                 BootsDev-X
               </span>
             </p>
-            <div className="flex gap-3 mb-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-3 mb-2 md:mb-4 w-full items-center justify-center">
               <a
                 href="https://www.youtube.com/@BootsDev-X"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2  bg-red-600  text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105"
+                className="inline-flex items-center gap-2 bg-red-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105 w-full justify-center md:w-auto"
               >
                 <svg
-                  width="28"
-                  height="28"
+                  width="24"
+                  height="24"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   className="text-white"
@@ -135,11 +152,11 @@ export default function App() {
                 href="https://github.com/main2526"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center bg-black gap-2  text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105"
+                className="inline-flex items-center bg-black gap-2 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105 w-full justify-center md:w-auto"
               >
                 <svg
-                  width="28"
-                  height="28"
+                  width="24"
+                  height="24"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   className="text-white"
@@ -149,17 +166,11 @@ export default function App() {
                 GitHub
               </a>
             </div>
-            <p className="text-slate-400 mb-4 animate-fade-in">
+            <p className="text-slate-400 mb-2 md:mb-4 animate-fade-in text-sm md:text-base">
               ¡Esta app está hecha con el fin de que practiques y aprendas, para
               que logres pasar el examen POMA del ITLA! 🚀
             </p>
-            <button
-              onClick={() => setShowCreator(false)}
-              className="mt-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-6 rounded-full shadow-lg "
-            >
-              Cerrar
-            </button>
-          </div>
+          </motion.div>
         </div>
       )}
     </main>
@@ -454,3 +465,14 @@ const QuizView = ({
     </div>
   );
 };
+
+/*
+  Agrega en tu CSS global (globals.css) la animación:
+  @keyframes slide-up {
+    0% { transform: translateY(60px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  .animate-slide-up {
+    animation: slide-up 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+*/

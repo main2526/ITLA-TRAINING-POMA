@@ -459,7 +459,8 @@ export const quizData = [
   },
 
   {
-    question: "Por que cuando vamos en un autobus y este frena de repente, nuestros cuerpos se inclinan hacia adelante?",
+    question:
+      "Por que cuando vamos en un autobus y este frena de repente, nuestros cuerpos se inclinan hacia adelante?",
     options: [
       "Por la fuerza centrífuga",
       "Porque resbala el suelo",
@@ -528,16 +529,116 @@ export const quizData = [
     answer: 2,
   },
 
-
   {
     question:
       "exceso de ............... suele ser un fenómeno propio de la época navideña",
+    options: ["consumismo", "lluvias.", "bienestar", "vientos"],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Se quiere arrastrar una gran piedra hacia un lugar. Se dispone de dos caballos para arrastrarla. Al interesado se le ocurren dos modos de colocar los caballos. - p: Colocar los caballos formando un ángulo de 30°. - q: Colocar los caballos en fila, esto es, uno detrás del otro. lija una de estas opciones, teniendo en cuenta su eficacia",
+    options: ["p > q", "p < q", "p = q", "Faltan datos"],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Cuando hay fuego, los bomberos echan chorros de agua u otras sustancias sobre los objetos encendidos. ¿ Cuál es realmente el efecto de estos productos",
     options: [
-      "consumismo",
-      "lluvias.",
-      "bienestar",
-      "vientos",
+      "Humedecen los objetos, lo que dificulta que cojan fuego",
+      "huyentan las llamas con la presión de las mangueras",
+      "No permiten que el oxígeno entre en contacto con el fuego",
+      "Crean humo que impide la propagación del fuego",
+    ],
+    answer: 2,
+  },
+
+  {
+    question: "¿Para qué utilizaban los antiguos marineros la estrella polar?",
+    options: [
+      "Para buscar el norte",
+      "Para contemplarla",
+      "Para buscar el sur",
+      "Para buscar el oeste",
     ],
     answer: 0,
   },
+
+  {
+    question:
+      "dominio del aprendizaje de la ...... es básico para el desarrollo del pensamiento",
+    options: [
+      "lengua materna ... universal",
+      "matemática ... científico",
+      "historia ... cultural",
+      "Investigación ... científico",
+    ],
+    answer: 2,
+  },
+
+  {
+    question:
+      " En este ejercicio se le presentan dos palabras relacionadas entre sí de algún modo,luego cuatro pares de palabras. Su tarea consiste en escoger el par de palabras queguarde entre sí, la misma relación que las dos primeras. // 'Serrucho es a herramienta, como ...'",
+    options: [
+      "radio es a instrumento musical",
+      "bala es a arma de fuego.",
+      "vela es a barco",
+      "ladrillo es a material de construcción",
+    ],
+    answer: 3,
+  },
+
+  {
+    question:
+      "En un país iberoamericano el cambio de divisas ha seguido este curso, con respecto a su moneda, el dólar y el euro respectivamente / el unico dia mas estable es el miercoles que tiene  un promedio de 17.70 y abajo  esta el euro con 17.50 / ¿Qué día de la semana el euro estuvo más bajo que el dólar?",
+    options: ["El lunes.", " viernes. ", "El jueves.", "El miércoles"],
+    answer: 3,
+  },
+
+  {
+    question:
+      "Estime la distancia aproximada que hay entre la cuidad A la B, si se tienen en cuenta la escala que se ofrece al final de gráfico / es una especie de pista con ciudad-A  ciudad-b y ciudad-c",
+    options: ["Unos 15 km.", "Unos 20 km", "Unos 25 km", "Unos 30 km."],
+    answer: 3,
+  },
+
+  {
+    question:
+      "y al banco a cambiar pesos dominicanos por moneda extranjera. Entrego RD$ 3,000 pesos y me dicen que me pueden dar: €60 euros o US$ 75 dólares. ¿ Cuál es la tasa de cambio en euros o en dólares que han utilizado?",
+    options: [
+      "RD$ 43 pesos = US$ 1 dóla",
+      "DS 50 pesos = €1 euro",
+      "1 euro = RD$ 60 peso",
+      "US$ 1 dólar = RD$ 45 pesos.",
+    ],
+    answer: 1,
+  },
+
+  {
+    question:
+      "Supongamos que la velocidad de ascenso de un avión viene dada por esta gráfica / es una grid / Longitud en hectómetros (cada 100 metros) / ¿Qué altura aproximada tendrá el avión a los 28 segundos? Entre los ...",
+    options: [
+      "300-350m",
+      "400-450m",
+      "500-550m",
+      "550-600m",
+    ],
+    answer: 3,
+  },  
+
+
+
+  {
+    question:
+      "Los mapas Michelin tienen muchas utilidades. Escoja la alternativa que define su uso más habitual.",
+    options: [
+      "Desplazarnos de un lado a otro",
+      "Estudiar el relieve terrestre",
+      "Indicarnos la cercanía de un restaurante.",
+      "Informar acerca de donde vivimos",
+    ],
+    answer: 0,
+  },  
 ];
