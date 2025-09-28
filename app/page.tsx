@@ -86,24 +86,27 @@ export default function App() {
   return (
     <main className="bg-slate-900 text-white min-h-screen flex items-center justify-center font-sans p-4 relative">
       <div className="w-full max-w-2xl mx-auto">{renderContent()}</div>
-      {/* Botón Creador flotante */}
+      {/* Botón Creador flotante, arriba en mobile, abajo en desktop */}
       <button
         onClick={() => setShowCreator(true)}
-        className="fixed bottom-4 right-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold py-2 px-4 rounded-full shadow-lg z-50 text-sm md:py-3 md:px-6 md:text-base"
+        className="fixed right-4 top-2  md:right-4 bg-gradient-to-r from-cyan-400 mb-40 to-blue-500 text-white font-bold py-2 px-4 rounded-full shadow-lg z-50 text-sm md:py-3 md:px-6 md:text-base"
         style={{ boxShadow: "0 4px 24px 0 rgba(56,189,248,0.3)" }}
       >
         Creator
       </button>
       {/* Modal Creador */}
       {showCreator && (
-        <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50 animate-fade-in p-2" onClick={() => setShowCreator(false)}>
+        <div
+          className="fixed  inset-0 backdrop-blur-md flex items-center justify-center z-50 animate-fade-in p-2"
+          onClick={() => setShowCreator(false)}
+        >
           <motion.div
             initial={{ y: 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ type: "keyframes", stiffness: 60, damping: 18 }}
             className="bg-slate-800 rounded-2xl shadow-2xl m-2 p-4 md:p-8 text-center border-4 border-cyan-400 flex flex-col items-center w-full max-w-xs md:max-w-md relative"
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Botón X para cerrar dentro del popup */}
             <button
