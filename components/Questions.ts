@@ -509,7 +509,7 @@ export const quizData = [
   {
     question: "Por que los pinguinos no pueden volar?",
     options: [
-      "Porque sus alas son pequena",
+      "Porque sus alas son pequeñas",
       "Porque no son aves",
       "Porque son mamíferos",
       "Porque pesan mucho",
@@ -619,16 +619,9 @@ export const quizData = [
   {
     question:
       "Supongamos que la velocidad de ascenso de un avión viene dada por esta gráfica / es una grid / Longitud en hectómetros (cada 100 metros) / ¿Qué altura aproximada tendrá el avión a los 28 segundos? Entre los ...",
-    options: [
-      "300-350m",
-      "400-450m",
-      "500-550m",
-      "550-600m",
-    ],
+    options: ["300-350m", "400-450m", "500-550m", "550-600m"],
     answer: 3,
-  },  
-
-
+  },
 
   {
     question:
@@ -640,5 +633,77 @@ export const quizData = [
       "Informar acerca de donde vivimos",
     ],
     answer: 0,
-  },  
+  },
+
+  {
+    question: "A qué se debe que veamos siempre que el sol sale por el Este?",
+    options: [
+      "Al movimiento de rotación de la tierra.",
+      "A los designios del Creador.",
+      "Al movimiento de traslación de la tierra",
+      "Al movimiento del Sol",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Los japoneses ....... a Pearl Harbour ...... a los norteamericanos.",
+    options: [
+      "vencieron ...... .. derribando",
+      "legaron ... masacrando",
+      "atacaron ......... sorprendiendo",
+      "Invadieron ...... atacando",
+    ],
+    answer: 2,
+  },
+
+  {
+    question:
+      "Siguiendo un orden cronológico decreciente (del más moderno al más antiguo), ¿cuál sería la serie de números adecuada para estos imperios antiguos? / AZTECA",
+    options: ["AZTECA", "ROMANO", "INGLES", "ESPANOL"],
+    answer: 1,
+  },
+
+  {
+    question:
+      "Con escasos ..... y con bastante rapidez, España y Portugal ...... la cultura occidental en una gran parte de América y la ..... al mundo cristiano-occidental.",
+    options: [
+      "misioneros ... favorecieron ... anexaron",
+      "medios técnicos ... cultivaron .... incardinaron",
+      "soldados ... impusieron ... obligaron",
+      "recursos .... implantaron .... agregaron",
+    ],
+    answer: 3,
+  },
+
+  {
+    question:
+      " Las relaciones entre Republica Dominicana y Haití no han estado exentas de ... y ... durante toda la historia",
+    options: [
+      "guerras ... tratados de paz",
+      "conquistas ... rechazos",
+      "negociaciones ... claudicaciones",
+      "mores ... odios",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Cuál de estas monedas es la más utilizada en el comercio internacional?",
+    options: ["El dólar american", " El yuan chin", "El euro", "peso mexicano"],
+    answer: 0,
+  },
+
+  {
+    question: "tipo de ... es una característica importante para estimar ...",
+    options: [
+      "gricultura ... la riqueza de la población",
+      "lima ... el temperamento de las personas",
+      "población ... las costumbres.",
+      "limentación ... la salud de la población",
+    ],
+    answer: 0,
+  },
 ];
