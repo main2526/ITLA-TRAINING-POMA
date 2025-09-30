@@ -660,8 +660,8 @@ export const quizData = [
 
   {
     question:
-      "Siguiendo un orden cronológico decreciente (del más moderno al más antiguo), ¿cuál sería la serie de números adecuada para estos imperios antiguos? / AZTECA",
-    options: ["AZTECA", "ROMANO", "INGLES", "ESPANOL"],
+      "Siguiendo un orden cronológico decreciente (del más moderno al más antiguo), ¿cuál sería la serie de números adecuada para estos imperios antiguos? / 1 AZTECA 2 ROMANO 3  INGLES 4  ESPANOL",
+    options: ["1, 2, 3, 4", "3, 4, 1, 2", "2, 1, 4, 3", "2, 1, 3, 4"],
     answer: 1,
   },
 
@@ -692,18 +692,90 @@ export const quizData = [
   {
     question:
       "Cuál de estas monedas es la más utilizada en el comercio internacional?",
-    options: ["El dólar american", " El yuan chin", "El euro", "peso mexicano"],
+    options: ["El dólar americano", " El yuan chin", "El euro", "peso mexicano"],
     answer: 0,
   },
 
   {
     question: "tipo de ... es una característica importante para estimar ...",
     options: [
-      "gricultura ... la riqueza de la población",
+      "Agricultura ... la riqueza de la población",
       "lima ... el temperamento de las personas",
       "población ... las costumbres.",
       "limentación ... la salud de la población",
     ],
     answer: 0,
+  },
+
+  {
+    question:
+      "Qué es Io que hace la mayoria de la gente al encontrarse perdido en una zona de la ciudad?",
+    options: [
+      "Preguntar en un colmado.",
+      "Preguntar a una persona que pasa",
+      "Parar a un taxista para que le oriente",
+      "Llamar por teléfono a una persona conocida",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Cual  de estos deportes estå mis relacionado con el esfuerzo conjunto de todo el equipo?",
+    options: [
+      "El patinaje artistico",
+      "La nataciön",
+      "El ciclismo",
+      "El baloncesto.",
+    ],
+    answer: 3,
+  },
+
+  {
+    question:
+      "Un joven, recién graduado en ingeniería civil, desea alcanzar un objetivo concreto: comprarse un buen carro. Se le ocurren varias acciones a realizar para alcanzar su objetivo. ¿ Cuál de éstas le ayudaría más a alcanzarlo?",
+    options: [
+      "Buscar cualquiera trabajo para comenzar a ahorrar.",
+      "Comprarse un buen traje para ir bien vestido a las entrevistas de trabajo",
+      "Buscarse padrinos para que le presenten a empresas constructoras",
+      "Asociarse con un ingeniero experimentado para montar una empresa constructora",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Si le piden ser padrino/madrina de una boda religiosa, siendo Ud. no creyente, ¿ Qué deberias hacer?",
+    options: [
+      "Aceptarlo, puesto que al fin y al cabo, es un acto social.",
+      "Enfadarse, porque lo ha hecho tu amigo a propósito para fastidiarte",
+      "Pedir excusas y mentir diciendo que tienes otro compromiso",
+      "Confesar abiertamente que no eres creyente",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Supongamos que es Ud. médico y se dispone a ir al Teatro Nacional, ¿qué es lo que debe hacer con su celular?",
+    options: [
+      "Quitarle el sonido y dejarlo solo en vibración",
+      "Apagarlo al entrar y olvidarme de él.",
+      "Dejarlo en casa, para estar más tranquilo",
+      "Tenerlo encendido por si acaso hay alguna urgencia",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Por que la gente prefiere tener una 'jeepeta' en vez de un carro para ir por la ciudad?",
+    options: [
+      "Dan más prestigio",
+      "Son más caras y lujosas",
+      "Son más grandes y seguras",
+      "Son mejores para los pavimentos malos",
+    ],
+    answer: 3,
   },
 ];
