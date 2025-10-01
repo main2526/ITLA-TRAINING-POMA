@@ -1,22 +1,35 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { quizData } from "@/components/Questions";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 // --- Componente Principal de la App ---
 export default function App() {
-  const [gameState, setGameState] = useState("start"); // 'start', 'quiz', 'results'
+  const [gameState, setGameState] = useState("start");
   const [answers, setAnswers] = useState<{ [key: number]: number }>({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showCreator, setShowCreator] = useState(false);
+  const [autoNext, setAutoNext] = useState(false);
+  const [shuffledQuiz, setShuffledQuiz] = useState(quizData);
+
+  // Función para mezclar preguntas
+  function shuffleArray(array: any[]) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
 
   const handleStart = (): void => {
     setGameState("quiz");
     setCurrentQuestionIndex(0);
     setAnswers({});
     setScore(0);
+    setShuffledQuiz(shuffleArray(quizData)); // Mezclar preguntas al iniciar
   };
 
   const handleAnswerSelect = (optionIndex: number): void => {
@@ -24,6 +37,11 @@ export default function App() {
       ...answers,
       [currentQuestionIndex]: optionIndex,
     });
+    if (autoNext && currentQuestionIndex < quizData.length - 1) {
+      setTimeout(() => {
+        setCurrentQuestionIndex((prev) => prev + 1);
+      }, 300); // Breve pausa para feedback visual
+    }
   };
 
   const handleNext = (): void => {
@@ -40,13 +58,13 @@ export default function App() {
 
   const calculateScore = (): void => {
     let correctAnswers = 0;
-    quizData.forEach((question, index) => {
+    shuffledQuiz.forEach((question, index) => {
       if (answers[index] === question.answer) {
         correctAnswers++;
       }
     });
     const finalScore = Math.round(
-      100 + (correctAnswers / quizData.length) * 900
+      100 + (correctAnswers / shuffledQuiz.length) * 900
     );
     setScore(finalScore);
     setGameState("results");
@@ -57,25 +75,28 @@ export default function App() {
       case "quiz":
         return (
           <QuizView
-            currentQuestion={quizData[currentQuestionIndex]}
+            currentQuestion={shuffledQuiz[currentQuestionIndex]}
             questionIndex={currentQuestionIndex}
-            totalQuestions={quizData.length}
+            totalQuestions={shuffledQuiz.length}
             selectedAnswer={answers[currentQuestionIndex]}
             onAnswerSelect={handleAnswerSelect}
             onNext={handleNext}
             onPrev={handlePrev}
             onSubmit={calculateScore}
             onJump={(idx) => setCurrentQuestionIndex(idx)}
+            autoNext={autoNext}
+            setAutoNext={setAutoNext}
           />
         );
       case "results":
         return (
           <ResultsView
             score={score}
-            totalQuestions={quizData.length}
-            correctAnswers={Math.round(((score - 100) / 900) * quizData.length)}
+            totalQuestions={shuffledQuiz.length}
+            correctAnswers={Math.round(((score - 100) / 900) * shuffledQuiz.length)}
             onRestart={handleStart}
             answers={answers}
+            questions={shuffledQuiz}
           />
         );
       case "start":
@@ -85,8 +106,9 @@ export default function App() {
   };
 
   return (
-    <main className="bg-gradient-to-br from-slate-950 via-slate-900 text-white min-h-screen flex items-center justify-center font-sans p-3 sm:p-4 md:p-6 relative overflow-x-hidden">
-      <div className="w-full max-w-4xl mx-auto">
+    <main className="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white min-h-screen flex items-center justify-center font-sans p-3 sm:p-4 md:p-6 relative overflow-x-hidden">
+      <ParticlesBackground />
+      <div className="w-full max-w-4xl mx-auto relative z-10">
         {renderContent()}
         {/* Botón Creator solo visible en mobile */}
         <button
@@ -112,7 +134,11 @@ export default function App() {
         aria-label="Ver información del creador"
       >
         <span className="flex items-center gap-2">
-          <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
+          <svg
+            className="w-4 h-4 md:w-5 md:h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
             <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" />
           </svg>
           Credits
@@ -213,6 +239,63 @@ export default function App() {
   );
 }
 
+// --- Animación de partículas de fondo ---
+const PARTICLE_COUNT = 18;
+const PARTICLE_COLORS = [
+  "rgba(56,189,248,0.18)", // cyan
+  "rgba(99,102,241,0.15)", // indigo
+  "rgba(139,92,246,0.13)", // violet
+  "rgba(59,130,246,0.15)", // blue
+];
+
+function randomBetween(min: number, max: number) {
+  return Math.random() * (max - min) + min;
+}
+
+const ParticlesBackground = () => {
+  const [particles, setParticles] = useState<Array<any>>([]);
+
+  useEffect(() => {
+    const generated = Array.from({ length: PARTICLE_COUNT }).map((_, i) => {
+      const size = randomBetween(24, 64);
+      const left = randomBetween(0, 100);
+      const delay = randomBetween(0, 3);
+      const duration = randomBetween(7, 14);
+      const color = PARTICLE_COLORS[i % PARTICLE_COLORS.length];
+      return { size, left, delay, duration, color, key: i };
+    });
+    setParticles(generated);
+  }, []);
+
+  return (
+    <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+      {particles.map((p) => (
+        <motion.div
+          key={p.key}
+          initial={{ y: "100vh", opacity: 0.7 }}
+          animate={{ y: "-10vh", opacity: 0.2 }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: p.duration,
+            delay: p.delay,
+            ease: "easeInOut",
+          }}
+          style={{
+            position: "absolute",
+            left: `${p.left}%`,
+            width: p.size,
+            height: p.size,
+            borderRadius: "20%",
+            background: p.color,
+            filter: "blur(3px)",
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 // --- Componentes de Vistas ---
 
 const StartView = ({ onStart }: { onStart: () => void }) => (
@@ -260,6 +343,7 @@ interface ResultsViewProps {
   correctAnswers: number;
   onRestart: () => void;
   answers: { [key: number]: number };
+  questions: any[]; // Agregado para recibir las preguntas
 }
 
 const ResultsView = ({
@@ -268,8 +352,9 @@ const ResultsView = ({
   correctAnswers,
   onRestart,
   answers,
+  questions, // Recibiendo las preguntas
 }: ResultsViewProps) => {
-  const failedQuestions = quizData
+  const failedQuestions = questions
     .map((q, idx) => ({
       ...q,
       userAnswer: answers[idx],
@@ -411,6 +496,8 @@ interface QuizViewProps {
   onPrev: () => void;
   onSubmit: () => void;
   onJump: (index: number) => void;
+  autoNext: boolean;
+  setAutoNext: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const QuizView = ({
@@ -423,6 +510,8 @@ const QuizView = ({
   onPrev,
   onSubmit,
   onJump,
+  autoNext,
+  setAutoNext,
 }: QuizViewProps) => {
   const [showHint, setShowHint] = useState(false);
   const [jumpTo, setJumpTo] = useState("");
@@ -436,6 +525,22 @@ const QuizView = ({
       exit={{ opacity: 0, x: -20 }}
       className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl w-full border border-cyan-500/20"
     >
+      {/* MODO DE AVANCE AUTOMÁTICO/MANUAL */}
+      <div className="mb-4 flex items-center gap-2">
+        <input
+          type="checkbox"
+          checked={autoNext}
+          onChange={() => setAutoNext((v) => !v)}
+          id="autoNextMode"
+        />
+        <label
+          htmlFor="autoNextMode"
+          className="text-cyan-300 text-sm font-semibold cursor-pointer"
+        >
+          Avanzar automáticamente al seleccionar respuesta
+        </label>
+      </div>
+
       <div className="mb-5 sm:mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
           <p className="text-cyan-400 font-semibold text-base sm:text-lg">
@@ -529,10 +634,11 @@ const QuizView = ({
             className={showHint ? "animate-spin" : ""}
           >
             <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+              d="M12 8v4l2 2"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           {showHint ? "Ocultar sugerencia" : "Mostrar sugerencia"}
@@ -592,21 +698,22 @@ const QuizView = ({
           <span className="hidden sm:inline">Anterior</span>
           <span className="sm:hidden">←</span>
         </button>
-
-        {questionIndex === totalQuestions - 1 ? (
-          <button
-            onClick={onSubmit}
-            className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base flex-1 sm:flex-initial"
-          >
-            Finalizar
-          </button>
-        ) : (
+        {/* Solo mostrar Siguiente si autoNext está desactivado */}
+        {!autoNext && questionIndex !== totalQuestions - 1 && (
           <button
             onClick={onNext}
             className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base flex-1 sm:flex-initial"
           >
             <span className="hidden sm:inline">Siguiente</span>
             <span className="sm:hidden">→</span>
+          </button>
+        )}
+        {questionIndex === totalQuestions - 1 && (
+          <button
+            onClick={onSubmit}
+            className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base flex-1 sm:flex-initial"
+          >
+            Finalizar
           </button>
         )}
       </div>

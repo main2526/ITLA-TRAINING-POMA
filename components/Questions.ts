@@ -692,7 +692,12 @@ export const quizData = [
   {
     question:
       "Cuál de estas monedas es la más utilizada en el comercio internacional?",
-    options: ["El dólar americano", " El yuan chin", "El euro", "peso mexicano"],
+    options: [
+      "El dólar americano",
+      " El yuan chino",
+      "El euro",
+      "peso mexicano",
+    ],
     answer: 0,
   },
 
@@ -721,7 +726,7 @@ export const quizData = [
 
   {
     question:
-      "Cual  de estos deportes estå mis relacionado con el esfuerzo conjunto de todo el equipo?",
+      "Cual  de estos deportes estå mas relacionado con el esfuerzo conjunto de todo el equipo?",
     options: [
       "El patinaje artistico",
       "La nataciön",
@@ -777,5 +782,112 @@ export const quizData = [
       "Son mejores para los pavimentos malos",
     ],
     answer: 3,
+  },
+
+  {
+    question:
+      "Pedro, un estudiante de 4 curso teórico, le han regalado sus padres RD$ 10,000 pesos para su cumpleaños. Él deseaba vehementemente que le regalaran una computadora, pero sus padres han optado por darle dinero, y que él decida. ¿ Cuál de estas opciones debiera escoger para sentirse mejor con sus expectativas?",
+    options: [
+      "Invitar a sus amigos al cine y luego irse de fiesta, pues el dinero está para gastar",
+      "Regalarse algo interesante, pues el dinero no le alcanza para comprar lo que desea.",
+      "Guardarlo en un banco hasta alcanzar la suma que necesita para comprarla",
+      "Guardarlo en casa para disponer de él, cuando lo necesite",
+    ],
+    answer: 2,
+  },
+
+  {
+    question:
+      "Mañana tienes un examen bien difícil, que has preparado bien ¿ Que es lo que se debe hacer la noche anterior? ",
+    options: [
+      "Estudiar toda la noche para mantenerlo fresco.",
+      "Tomar café toda lo noche para aguantar más",
+      "Descansar esa noche para tener la mente despejada",
+      "Salir de fiesta para distraerme",
+    ],
+    answer: 2,
+  },
+
+  {
+    question:
+      "Cual de estos comportamientos sería el más adecuado al cruzar una calle de dos vias ? ",
+    options: [
+      "Esperar a que el semáforo peatonal esté en verde",
+      "Mirar a la izquierda para comprobar que no viene ningún carro y pasar",
+      "Cruzar la calle con toda tranquilidad, pues el peatón siempre tiene preferencia",
+      "Entrar mirando a la izquierda, pararse en el centro y mirar luego a la derecha.",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Si Ud. va paseando por la calle y se percata de que dos individuos están atracando a una señora y que en el forcejeo esta se ha caído al suelo y ellos han salido corriendo con su bolso. ¿ Qué es lo que debería hacer en primer lugar?",
+    options: [
+      "Salir corriendo detrás de los ladrones",
+      "Atender a la señora",
+      "Llamar por el celular a la policía",
+      "No involucrarse en el asunto",
+    ],
+    answer: 1,
+  },
+
+  {
+    question:
+      "Complete con el par de palabras que guarden el mismo tipo de relación entre si, que las primeras palabras que aparecen en la expresión siguiente / Tenacidad es alcanzar logro, como...",
+    options: [
+      "leer mucho es a cultura",
+      "leer poco es a ignorancia",
+      "Sedentarismo es a enfermedad",
+      "caminar asiduamente es a mantenerse en salud",
+    ],
+    answer: 0,
+  },
+
+  {
+    question:
+      "Si Ud. va en un carro por una carretera de dos vías separadas por dos rayas continuas y se da cuenta de que se ha pasado por unos metros de la salida que debía tomar ¿Cuál de estas decisiones cree que sería la más correcta de acuerdo a la normativa de tráfico?",
+    options: [
+      "Dar media vuelta y cambiar de sentido",
+      "Dar marcha atrás con cuidado.",
+      "Acercarse al arcén y estudiar la situación",
+      "Seguir y esperar una oportunidad para cambiar de sentido.",
+    ],
+    answer: 3,
+  },
+
+  {
+    question:
+      "Establezca la relación de peligrosidad de estas dos acciones p = Caminar de noche por 'La 17'. q = Fumar mariguana con los amigos. Escoja la respuesta más completa",
+    options: [
+      "Ambas acciones no guardan relación entre sí",
+      "p es más peligrosa que q",
+      "q es más peligrosa que p.",
+      "Ambas acciones tienen una peligrosidad equivalente",
+    ],
+    answer: 3,
+  },
+
+  {
+    question:
+      "La principal......del comportamiento humano reside en la posibilidad de............ los objetivos que nos hemos propuesto. Seleccione la alternativa que da el mejor sentido a la expresión",
+    options: [
+      "motivación ............. alcanzar",
+      "gloria......llegar",
+      "alegría...........acercarse",
+      "desidia..........no alcanzar",
+    ],
+    answer: 0,
+  },
+
+  {
+    question: "Disciplina en el aula es importante para la enseñanza, como ...",
+    options: [
+      "oxígeno es a vida",
+      "cumplir los reglamentos es a eficacia laboral",
+      "multas es a tráfico",
+      "comer mucho es a engordar",
+    ],
+    answer: 1,
   },
 ];
