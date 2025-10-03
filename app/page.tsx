@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { quizData } from "@/components/Questions";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -516,6 +516,16 @@ const QuizView = ({
   const [showHint, setShowHint] = useState(false);
   const [jumpTo, setJumpTo] = useState("");
   const progress = ((questionIndex + 1) / totalQuestions) * 100;
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const prevAutoNext = useRef(autoNext);
+
+  useEffect(() => {
+    if (!prevAutoNext.current && autoNext && audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+    prevAutoNext.current = autoNext;
+  }, [autoNext]);
 
   return (
     <motion.div
@@ -525,19 +535,30 @@ const QuizView = ({
       exit={{ opacity: 0, x: -20 }}
       className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl w-full border border-cyan-500/20"
     >
+      {/* AUDIO DE ACTIVACIÓN AUTOMÁTICA */}
+      <audio ref={audioRef} src="/activar.wav" preload="auto" />
       {/* MODO DE AVANCE AUTOMÁTICO/MANUAL */}
-      <div className="mb-4 flex items-center gap-2">
-        <input
-          type="checkbox"
-          checked={autoNext}
-          onChange={() => setAutoNext((v) => !v)}
-          id="autoNextMode"
-        />
-        <label
-          htmlFor="autoNextMode"
-          className="text-cyan-300 text-sm font-semibold cursor-pointer"
-        >
-          Avanzar automáticamente al seleccionar respuesta
+      <div className="mb-6 flex items-center gap-4">
+        <label htmlFor="autoNextMode" className="flex items-center cursor-pointer select-none">
+          <div className="relative">
+            <input
+              type="checkbox"
+              checked={autoNext}
+              onChange={() => setAutoNext((v) => !v)}
+              id="autoNextMode"
+              className="sr-only"
+            />
+            <div
+              className={`w-14 h-8 bg-slate-700 rounded-full border-2 border-cyan-400 transition-colors duration-300 ${autoNext ? 'bg-gradient-to-r from-cyan-400 to-blue-500 border-blue-400' : ''}`}
+            ></div>
+            <div
+              className={`absolute left-1 top-1 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 ${autoNext ? 'translate-x-6 bg-cyan-400' : ''}`}
+              style={{ boxShadow: '0 2px 8px rgba(56,189,248,0.25)' }}
+            ></div>
+          </div>
+          <span className="ml-4 text-cyan-300 text-lg font-bold drop-shadow-lg">
+            Modo automático
+          </span>
         </label>
       </div>
 
